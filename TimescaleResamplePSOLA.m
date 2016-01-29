@@ -1,0 +1,14 @@
+[x,Fs,nbits]=wavread('C:\project\aka.wav');
+y=zeros(1,length(x));
+m=pitchmarker(x);
+alpha=0.88;
+beta=0.94;
+gamma=1;
+y=psola(x,m,alpha,beta);
+y=resample(y,length(x),length(y));
+wavwrite(y, Fs, 'C:\project\psola_high_my.wav');
+alpha=(3/4);
+beta=1;
+y=psola(x,m,alpha,beta);
+y=resample(y,length(x),length(y));
+wavwrite(y, Fs, 'C:\project\psola_Low_my.wav');

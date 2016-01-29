@@ -1,0 +1,16 @@
+clear all;
+close all;
+clc;
+[x,Fs,nbits]=wavread('C:\project\tan.wav');
+m=pitchmarker(x);
+y=zeros(1,length(x));
+alpha=1.2;
+beta=1;
+gamma=1;
+y=psolaF1(x,m,alpha,beta,gamma);
+wavwrite(y, Fs, 'aka_high.wav');
+alpha=1;
+beta=(3/4);
+gamma=1;
+y=psolaF1(x,m,alpha,beta,gamma);
+wavwrite(y, Fs, 'aka_low.wav');
